@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>REGION</title>
+	<link rel="stylesheet" href="/css/style.min.css">
+</head>
+	
+<body>
+	<div class="wrapper">
+		<header class="header container">
+	<h1>regium_go_test (тест&nbspдля&nbspкурса)</h1>
+</header>
+		<main>
+			<section class="container task1">
+				<h2 class="title">Задание 1</h2>
+				<label>
+					<span>Введи положительное число до 125</span>
+					<input id="task1_inp" type="number">
+					<button id="task1" type="submit">пуск</button>
+				</label>
+				<div id="task1_out" class="res">
+				</div>
+				<details>
+					<summary>Код</summary>
+					<pre>
+let res=[]			//результат
+let size=2*num-1
+let direct="left"
+let arr=new Array(size)
+arrInit(arr,size)
+let x=y=xMax=xMin=yMax=yMin = num-1
+res.push(arr[x][y])
+while (true) {
+	switch (direct) {
+		case "left":y--;break;
+		case "right":y++;break;
+		case "top":x--;break;
+		case "bottom":x++;break;
+	}
+	if((x<0||y<0)||(x>size||y>size)){console.log("exit"); break}
+	switch (direct) {
+		case "left":  if(y<yMin){yMin=y;direct="bottom"}
+		case "right": if(y>yMax){yMax=y;direct="top"}
+		case "top":   if(x<xMin){xMin=x;direct="left"}
+		case "bottom":if(x>xMax){xMax=x;direct="right"}
+	}
+	res.push(arr[x][y])
+}
+					</pre>
+			  </details>
+			</section>
+			<section class="container task2">
+				<h2 class="title">Задание 2</h2>
+				<label>
+					<span>Введи строку</span>
+					<input id="task2_inp" type="text">
+					<button id="task2" type="submit">пуск</button>
+				</label>
+				<div id="task2_out" class="res">
+				</div>
+				<details>
+					<summary>Код</summary>
+					<pre>
+let res			//результат
+if(str.length==0) return
+iStart=0
+iEnd=str.length-1
+while (true) {
+	if(iStart==iEnd){res=true;break}
+	if(str[iStart]!==str[iEnd]){res=false;break}
+	iStart++
+	iEnd--
+	if(iStart>iEnd){res=true;break}
+}
+					</pre>
+				</details>
+			</section>
+			<section class="container task3">
+				<h2 class="title">Задание 3</h2>
+				<label>
+					<span>Введи положительное число, с чётным количеством цифр</span>
+					<input id="task3_inp" type="number">
+					<button id="task3" type="submit">пуск</button>
+				</label>
+				<div id="task3_out" class="res">
+				</div>
+				<details>
+					<summary>Код</summary>
+					<pre>
+sum1=sum2=0
+middle=num.length/2
+for (let i = 0; i&lt;middle; i++) {
+	num[i]=+num[i]
+	sum1=sum1+num[i]
+}
+for (let i = middle; i&lt;num.length; i++) {
+	num[i]=+num[i]
+	sum2=sum2+num[i]
+}
+if(sum1===sum2)output.innerHTML="СЧАСТЛИВЫЙ"
+else output.innerHTML="НЕ СЧАСТЛИВЫЙ"
+					</pre>
+				</details>
+			</section>
+			<section class="container task4">
+				<h2 class="title">Задание 4</h2>
+				<label>
+					<span>Введи числа, через ","</span>
+					<input id="task4_inp" type="text">
+					<button id="task4" type="submit">пуск</button>
+				</label>
+				<div id="task4_out" class="res">
+				</div>
+				<details>
+					<summary>Код</summary>
+					<pre>
+let arrStr=input.value.split(',')
+let arr=arrStr.map(item=>{return Number(item)})
+let iMax=arr.length-1
+let i=1
+let count=0			//результат
+while (true) {
+	if(arr[i]&lt;=arr[i-1]){arr[i]++;count++;}
+	else i++
+	if(i&gt;iMax)break
+}
+output.innerHTML=`количество ходов: ${count}`
+				</pre>
+				</details>
+			</section>
+		</main>
+		<footer class="footer">
+	<a href="tel:+79521229055">+7 952 122 90 55</a>
+	<span>Евгений</span>
+</footer>
+	</div>
+	
+	<script src="/js/script.js"></script>
+</body>
+</html>
